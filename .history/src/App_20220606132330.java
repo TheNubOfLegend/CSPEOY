@@ -19,16 +19,17 @@ public class App {
 
         while (true) {
             System.out.println("What would you like to do : 'rev' your engine, 'drive', or 'park'?");
-            Scanner console = new Scanner(System.in);
-            String in = console.nextLine();
-            in = in.replaceAll("\\\\","");
-            if (in.equals("rev")) {
-                Car.revEngine();
-            } else if (in.equals("drive")) {
-                Car.drive();
-            } else if (in.equals("park")) {
-                Car.Park();
-            } else {
+            try (Scanner console = new Scanner(System.in)) {
+                String in = console.nextLine();
+                in = in.replaceAll("\\\\","");
+                if (in.equals("rev")) {
+                    Car.revEngine();
+                } else if (in.equals("drive")) {
+                    Car.drive();
+                } else if (in.equals("park")) {
+                    Car.Park();
+                } else {
+                }
             }
         }
     }

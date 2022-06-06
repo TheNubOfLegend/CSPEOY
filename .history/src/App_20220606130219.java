@@ -29,6 +29,9 @@ public class App {
             } else if (in.equals("park")) {
                 Car.Park();
             } else {
+                System.out.println("Invalid input. Try again.");
+                System.out.println(in);
+                System.out.println(in == "rev");
             }
         }
     }

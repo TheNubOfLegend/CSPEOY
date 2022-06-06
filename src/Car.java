@@ -1,6 +1,4 @@
-import java.io.Console;
-
-import java.io.Console;
+import java.util.Scanner;
 
 public class Car {
     //since we only make 4-wheel cars, our variable can be "static", meaning that the value is constant among instances
@@ -9,17 +7,42 @@ public class Car {
     private int numOfWindows;
     private String name;
     private String brand;
+    private static int milesDrivenTotal = 0;
 
+    //this is a method, essentially a function that can only be referenced through the class.  "Static" means the member relates to the entire class,
+    //"public" means it can be accessed anywhere within its scope, and "void" is the return type: none of my methods return a value, so they all have a return type "void"
     public static void revEngine()
     {
         System.out.println("Vroom");
     }
 
-    public static String[] drive()
+    public static void drive()
     {
-        Console console = System.console();
+        Scanner console = new Scanner(System.in);
         System.out.println("You've come to an intersection! What would you like to do?");
-        String direction = console.readLine();
+        String[] directionOptionsBase = {"left", "right", "straight"};
+        String[] directionOptions = new String[2];
+        int directionChange0 = (int)(Math.ceil(Math.random()*3-1));
+        int directionChange1 = (int)(Math.ceil(Math.random()*3-1));
+        while (directionChange0 == directionChange1) {
+            directionChange0 = (int)(Math.ceil(Math.random()*3-1));
+        }
+        directionOptions[0] = directionOptionsBase[directionChange0];
+        directionOptions[1] = directionOptionsBase[directionChange1];        
+        System.out.println("Would you like to go " + directionOptions[0] + " or " + directionOptions[1] + "?");
+        String d = console.nextLine();
+        while (!((d.equals(directionOptions[0])) || (d.equals(directionOptions[1])))) {
+            System.out.println("Invalid direction. Try again.");
+            d = console.nextLine();
+        }
+        milesDrivenTotal++;
+        System.out.println("You went " + d + "." + " You have driven " + milesDrivenTotal + " miles overall.");
+    }
+
+    public static void Park() 
+    {
+        System.out.println("Parking... Thanks for the adventure!");
+        System.exit(0);
     }
 
     //every car we make has 4 wheels, so we won't ever set wheels to any other value

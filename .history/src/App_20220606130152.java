@@ -24,11 +24,14 @@ public class App {
             in = in.replaceAll("\\\\","");
             if (in.equals("rev")) {
                 Car.revEngine();
-            } else if (in.equals("drive")) {
+            } else if (in == "drive") {
                 Car.drive();
-            } else if (in.equals("park")) {
+            } else if (in == "park") {
                 Car.Park();
             } else {
+                System.out.println("Invalid input. Try again.");
+                System.out.println(in);
+                System.out.println(in == "rev");
             }
         }
     }

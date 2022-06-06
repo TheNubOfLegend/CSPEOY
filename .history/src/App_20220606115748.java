@@ -21,15 +21,14 @@ public class App {
             System.out.println("What would you like to do : 'rev' your engine, 'drive', or 'park'?");
             Scanner console = new Scanner(System.in);
             String in = console.nextLine();
-            in = in.replaceAll("\\\\","");
-            if (in.equals("rev")) {
+            if (in == "rev") {
                 Car.revEngine();
-            } else if (in.equals("drive")) {
+            } else if (in == "drive") {
                 Car.drive();
-            } else if (in.equals("park")) {
-                Car.Park();
-            } else {
+            } else if (in == "park") {
+                Car.park();
             }
         }
+
     }
 }

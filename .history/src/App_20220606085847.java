@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class App {
     public static void main(String[] args) throws Exception {
 
@@ -17,19 +15,6 @@ public class App {
         //the Malibu's window number stayed the same
         System.out.println("Name of car: " + ChevyMalibu.getName() + "\nNumber of windows: " + ChevyMalibu.getWindows());
 
-        while (true) {
-            System.out.println("What would you like to do : 'rev' your engine, 'drive', or 'park'?");
-            Scanner console = new Scanner(System.in);
-            String in = console.nextLine();
-            in = in.replaceAll("\\\\","");
-            if (in.equals("rev")) {
-                Car.revEngine();
-            } else if (in.equals("drive")) {
-                Car.drive();
-            } else if (in.equals("park")) {
-                Car.Park();
-            } else {
-            }
-        }
+        System.out.println(Math.ceil(Math.random()*3));
     }
 }

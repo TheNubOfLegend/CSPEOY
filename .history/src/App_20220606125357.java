@@ -22,13 +22,16 @@ public class App {
             Scanner console = new Scanner(System.in);
             String in = console.nextLine();
             in = in.replaceAll("\\\\","");
-            if (in.equals("rev")) {
+            if (in == "rev") {
                 Car.revEngine();
-            } else if (in.equals("drive")) {
+            } else if (in == "drive") {
                 Car.drive();
-            } else if (in.equals("park")) {
+            } else if (in == "park") {
                 Car.Park();
             } else {
+                System.out.println("Invalid input. Try again.");
+                System.out.println(in);
+                System.out.println(in == "rev");
             }
         }
     }

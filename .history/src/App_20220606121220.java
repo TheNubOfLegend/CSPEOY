@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import javax.sound.sampled.ReverbType;
+
 public class App {
     public static void main(String[] args) throws Exception {
 
@@ -21,14 +23,17 @@ public class App {
             System.out.println("What would you like to do : 'rev' your engine, 'drive', or 'park'?");
             Scanner console = new Scanner(System.in);
             String in = console.nextLine();
-            in = in.replaceAll("\\\\","");
-            if (in.equals("rev")) {
+            in = String.format("%s", in);
+            if (in == "rev") {
                 Car.revEngine();
-            } else if (in.equals("drive")) {
+            } else if (in == "drive") {
                 Car.drive();
-            } else if (in.equals("park")) {
+            } else if (in == "park") {
                 Car.Park();
             } else {
+                System.out.println("Invalid input. Try again.");
+                System.out.println(String.raw(in));
+                System.out.println(in == "rev");
             }
         }
     }
