@@ -1,3 +1,7 @@
+import java.io.Console;
+
+import java.io.Console;
+
 public class Car {
     //since we only make 4-wheel cars, our variable can be "static", meaning that the value is constant among instances
     private static int numOfWheels = 4;
@@ -6,6 +10,17 @@ public class Car {
     private String name;
     private String brand;
 
+    public static void revEngine()
+    {
+        System.out.println("Vroom");
+    }
+
+    public static String[] drive()
+    {
+        Console console = System.console();
+        System.out.println("You've come to an intersection! What would you like to do?");
+        String direction = console.readLine();
+    }
 
     //every car we make has 4 wheels, so we won't ever set wheels to any other value
     public int getWheels()
@@ -34,7 +49,7 @@ public class Car {
         return brand;
     }
 
-    //this is a constructor, which is used as a template to create instances of a class.  It handles preliminary definition of class members (variables)
+    //this is a constructor, which is used as a template to create instances of a class.  It handles preliminary definition of class members (variables or functions)
     Car(int numOfWindows, String name, String brand) {
         this.numOfWindows = numOfWindows;
         this.name = name;
